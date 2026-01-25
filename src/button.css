@@ -1,0 +1,39 @@
+.btn-main{
+    background: linear-gradient(135deg, red,#8b96ff);
+}
+
+.btn-main:hover{
+    background: linear-gradient(135deg, #ff4d4d, #7e88ff);
+}
+
+.btn-secondary:hover{
+    background: linear-gradient(135deg, #5a5a5a, #6e6e7e);
+}
+
+.btn-secondary{
+    background: linear-gradient(135deg, rgb(36, 35, 35), #494950);
+}
+
+button {
+  margin-top: 0.5rem;
+  padding: 0.9rem;
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  font-family: "Google Sans", system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, var(--primary-hover), #7e88ff);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(108, 124, 255, 0.35);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(108, 124, 255, 0.25);
+}
