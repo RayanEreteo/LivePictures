@@ -15,11 +15,9 @@
     <div id="app">
       <h1>Lives Pictures</h1>
       <p id="description">Send images in real time, no account required !</p>
-      <form method="POST">
+      <form method="POST" id="channel-form">
         <input type="text" placeholder="Channel ID" name="channel-id" id="channel-id" required>
-        <input type="text" placeholder="Channel Password" name="channel-password" id="channel-password" required>
         <button type="submit" class="btn-main">Enter Channel</button>
-        <button class="btn-secondary">Create Channel</button>
       </form>
     </div>
     <script type="module" src="/src/main.ts"></script>
