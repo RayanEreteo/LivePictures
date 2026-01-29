@@ -9,3 +9,7 @@ form?.addEventListener("submit", (e) => {
     e.preventDefault()
     socket.emit("join-channel", formInput?.value)
 })
+
+socket.on("failure", (failureMsg) => {
+    console.log(failureMsg)
+})
