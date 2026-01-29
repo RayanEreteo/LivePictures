@@ -13,3 +13,7 @@ form?.addEventListener("submit", (e) => {
 socket.on("failure", (failureMsg) => {
     console.log(failureMsg)
 })
+
+socket.on("success", (successMsg) => {
+    console.log(successMsg)
+})
