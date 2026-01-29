@@ -2,13 +2,10 @@ import io from "socket.io-client"
 
 const socket = io("http://localhost:5000")
 
-socket.on("connect", () => {
-    console.log("connecté au serveur");
+const form = document.getElementById("channel-form")
+const formInput = document.getElementById("channel-id") as HTMLInputElement
 
-    const text = "This is a test"
-    socket.emit("message", text)
-})
-
-socket.on("message", text => {
-    console.log("reçu :", text)
+form?.addEventListener("submit", (e) => {
+    e.preventDefault()
+    socket.emit("join-channel", formInput?.value)
 })
