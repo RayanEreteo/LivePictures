@@ -9,6 +9,11 @@ const serverMsg = document.getElementById("server-message")
 
 form?.addEventListener("submit", (e) => {
     e.preventDefault()
+    if (!socket.connected && serverMsg) {
+        serverMsg.style.display = "block"
+        serverMsg.innerHTML = "Server offline : please try again later"
+        return
+    }
     socket.emit("join-channel", formInput?.value)
 })
 
