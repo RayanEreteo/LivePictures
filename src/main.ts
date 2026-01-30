@@ -28,5 +28,6 @@ socket.on("success", () => {
     if (serverMsg) {
         serverMsg.style.display = "none"
     }
+    localStorage.setItem("channelID", formInput.value)
     window.location.href = "/room"
 })
