@@ -14,7 +14,7 @@ form?.addEventListener("submit", (e) => {
         serverMsg.innerHTML = "Server offline : please try again later"
         return
     }
-    socket.emit("join-channel", formInput?.value)
+    socket.emit("check-channel", formInput?.value)
 })
 
 socket.on("failure", (failureMsg) => {
@@ -28,4 +28,5 @@ socket.on("success", () => {
     if (serverMsg) {
         serverMsg.style.display = "none"
     }
+    window.location.href = "/room"
 })
