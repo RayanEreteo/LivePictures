@@ -9,3 +9,7 @@ if (!channelID) {
 }
 
 channelIdText.innerHTML = `Channel ID : ${channelID}`
+
+window.onbeforeunload = () => {
+    localStorage.clear()
+}
