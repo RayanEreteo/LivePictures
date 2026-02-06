@@ -14,18 +14,18 @@ if (!channelID) {
 channelIdText.innerHTML = `Channel ID : ${channelID}`
 
 fileInput.addEventListener('change', (event: Event) => {
-    const target = event.target as HTMLInputElement;
+    const target = event.target as HTMLInputElement
     
     if (target.files && target.files[0]) {
-        const file = target.files[0];
+        const file = target.files[0]
 
-        const reader = new FileReader();
+        const reader = new FileReader()
 
         reader.onload = (e) => {
-            const imageUrl = e.target?.result;
+            const imageUrl = e.target?.result
             
             if (typeof imageUrl === 'string') {
-                img.src = imageUrl;
+                img.src = imageUrl
             }
         };
 
