@@ -1,11 +1,14 @@
 import io from "socket.io-client"
 
-const socket = io("http://localhost:5000")
+const socket = io("http://192.168.1.221:5000")
 
+const imageForm = document.getElementById("image-form") as HTMLFormElement
 const channelIdText = document.getElementById("id-text") as HTMLHeadingElement
 const channelID: string | null = localStorage.getItem("channelID")
 const fileInput = document.getElementById("image-import-input") as HTMLInputElement
 const img = document.getElementById("image") as HTMLImageElement
+
+let imgURL: string | ArrayBuffer | undefined | null = ""
 
 if (!channelID) {
     window.location.href = "/"
@@ -22,10 +25,10 @@ fileInput.addEventListener('change', (event: Event) => {
         const reader = new FileReader()
 
         reader.onload = (e) => {
-            const imageUrl = e.target?.result
+            imgURL = e.target?.result
             
-            if (typeof imageUrl === 'string') {
-                img.src = imageUrl
+            if (typeof imgURL === 'string') {
+                img.src = imgURL
             }
         };
 
@@ -33,8 +36,17 @@ fileInput.addEventListener('change', (event: Event) => {
     }
 });
 
+imageForm.addEventListener("submit", (e) => {
+    e.preventDefault()
+    socket.emit("send-image", [channelID, imgURL])
+})
+
 window.onbeforeunload = () => {
     localStorage.clear()
 }
+
+socket.on("update-image", (imageURL) => {
+    img.src = imageURL
+})
 
 socket.emit("enter-channel", channelID)
