@@ -8,6 +8,8 @@ const channelID: string | null = localStorage.getItem("channelID")
 const fileInput = document.getElementById("image-import-input") as HTMLInputElement
 const img = document.getElementById("image") as HTMLImageElement
 
+const BUFFER_LIMIT: number = 1000000
+
 let imgURL: string | ArrayBuffer | undefined | null = ""
 
 if (!channelID) {
@@ -28,9 +30,13 @@ fileInput.addEventListener('change', (event: Event) => {
             imgURL = e.target?.result
             
             if (typeof imgURL === 'string') {
+                if (file.size > BUFFER_LIMIT) {
+                    target.value = ""
+                    return
+                }
                 img.src = imgURL
             }
-        };
+        }
 
         reader.readAsDataURL(file)
     }
