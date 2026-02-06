@@ -87,6 +87,10 @@ input:focus {
   box-shadow: 0 0 0 3px rgba(108, 124, 255, 0.25);
 }
 
+img{
+  width: 600px;
+}
+
 /* Small screens */
 @media (max-width: 480px) {
   #app {
