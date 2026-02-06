@@ -1,6 +1,7 @@
 import io from "socket.io-client"
 
-const socket = io("http://localhost:5000")
+const socket = io("http://192.168.1.221:5000")
+
 
 const form = document.getElementById("channel-form")
 const formInput = document.getElementById("channel-id") as HTMLInputElement
