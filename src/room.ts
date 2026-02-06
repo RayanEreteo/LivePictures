@@ -19,9 +19,6 @@ fileInput.addEventListener('change', (event: Event) => {
     if (target.files && target.files[0]) {
         const file = target.files[0];
 
-        console.log(`File name: ${file.name}`);
-        console.log(`File size: ${file.size} bytes`);
-
         const reader = new FileReader();
 
         reader.onload = (e) => {
@@ -32,10 +29,12 @@ fileInput.addEventListener('change', (event: Event) => {
             }
         };
 
-        reader.readAsDataURL(file);
+        reader.readAsDataURL(file)
     }
 });
 
 window.onbeforeunload = () => {
     localStorage.clear()
 }
+
+socket.emit("enter-channel", channelID)
