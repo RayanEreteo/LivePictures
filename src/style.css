@@ -28,7 +28,6 @@ body {
   justify-content: center;
 }
 
-/* App container */
 #app {
   width: 100%;
   max-width: 420px;
@@ -42,7 +41,6 @@ body {
   text-align: center;
 }
 
-/* Title */
 #app h1 {
   font-family: "TASA Orbiter", sans-serif;
   font-size: 2rem;
@@ -51,21 +49,18 @@ body {
   margin-bottom: 0.5rem;
 }
 
-/* Description */
 #description {
   font-size: 0.95rem;
   color: var(--muted);
   margin-bottom: 2rem;
 }
 
-/* Form */
-form {
+#channel-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-/* Inputs */
 input[type="text"] {
   width: 100%;
   padding: 0.85rem 0.95rem;
@@ -92,19 +87,27 @@ input:focus {
   text-align: center;
 }
 
-img{
-  width: 600px;
-  max-height: 400px;
+#image-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
 }
 
-/* Container to keep things organized */
+img{
+  width: 600px;
+  max-height: 600px;
+}
+
 .file-input-wrapper {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   margin-bottom: 0.5rem;
 }
 
-/* Hide the actual ugly input */
 #image-import-input {
   position: absolute;
   width: 0.1px;
@@ -114,10 +117,9 @@ img{
   z-index: -1;
 }
 
-/* Style the label to look like your text inputs */
 .file-label {
   display: block;
-  width: 100%;
+  width: 49%;
   padding: 0.85rem 0.95rem;
   border-radius: 10px;
   border: 1px solid var(--border);
