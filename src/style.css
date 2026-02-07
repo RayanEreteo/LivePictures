@@ -87,9 +87,56 @@ input:focus {
   box-shadow: 0 0 0 3px rgba(108, 124, 255, 0.25);
 }
 
+#id-text{
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
 img{
   width: 600px;
   max-height: 400px;
+}
+
+/* Container to keep things organized */
+.file-input-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+/* Hide the actual ugly input */
+#image-import-input {
+  position: absolute;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+/* Style the label to look like your text inputs */
+.file-label {
+  display: block;
+  width: 100%;
+  padding: 0.85rem 0.95rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.file-label:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--primary);
+}
+
+#image-import-input:focus + .file-label {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(108, 124, 255, 0.25);
 }
 
 /* Small screens */
