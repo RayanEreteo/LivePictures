@@ -1,4 +1,4 @@
-// TODO : Disable send button on image send for every client. Add error message for buffer limit or server fail (need size checking to backend). Add styling
+// TODO : Add error message for buffer limit or server fail (need size checking to backend). Add styling
 //! BUGS : Sometimes the image is not send for unknown reason.
 
 import io from "socket.io-client"
