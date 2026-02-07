@@ -1,3 +1,6 @@
+// TODO : Disable send button on image send for every client. Add error message for buffer limit or server fail (need size checking to backend). Add styling
+//! BUGS : Sometimes the image is not send for unknown reason.
+
 import io from "socket.io-client"
 
 const socket = io("http://192.168.1.221:5000")
@@ -8,7 +11,7 @@ const channelID: string | null = localStorage.getItem("channelID")
 const fileInput = document.getElementById("image-import-input") as HTMLInputElement
 const img = document.getElementById("image") as HTMLImageElement
 
-const BUFFER_LIMIT: number = 1000000
+const BUFFER_LIMIT: number = 5e+6 // 5MB buffer limit
 
 let imgURL: string | ArrayBuffer | undefined | null = ""
 
