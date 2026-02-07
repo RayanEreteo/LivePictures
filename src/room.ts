@@ -50,9 +50,9 @@ imageForm.addEventListener("submit", (e) => {
     socket.emit("send-image", [channelID, imgURL])
 })
 
-window.onbeforeunload = () => {
+window.addEventListener("pagehide", () => {
     localStorage.clear()
-}
+})
 
 socket.on("update-image", (imageURL) => {
     img.src = imageURL
