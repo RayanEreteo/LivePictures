@@ -1,5 +1,5 @@
 // TODO : Add error message for buffer limit or server fail (need size checking to backend).
-//! BUGS : Sometimes the image is not send for unknown reason. Can't access room if server is back online after being down.
+//! BUGS : Sometimes the image is not send for unknown reason.
 
 import io from "socket.io-client"
 
