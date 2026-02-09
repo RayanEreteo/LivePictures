@@ -46,9 +46,14 @@ fileInput.addEventListener('change', (event: Event) => {
 });
 
 imageForm.addEventListener("submit", (e) => {
-    e.preventDefault()
-    socket.emit("send-image", [channelID, imgURL])
-})
+    e.preventDefault();
+    if (imgURL && channelID) {
+        socket.emit("send-image", { channelID, imgURL });
+        // Optional: Clear imgURL after sending to prevent double-submits
+    } else {
+        console.error("Image not loaded yet or Channel ID missing");
+    }
+});
 
 window.addEventListener("pagehide", () => {
     localStorage.clear()
