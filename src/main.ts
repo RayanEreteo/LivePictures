@@ -14,7 +14,7 @@ form?.addEventListener("submit", (e) => {
     submitBtn.disabled = true
 
     if (!socket.connected && serverMsg) {
-        
+        submitBtn.disabled = false
         serverMsg.style.display = "block"
         serverMsg.innerHTML = "Server offline : please try again later"
         return
