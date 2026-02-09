@@ -1,4 +1,4 @@
-// TODO : Add error message for buffer limit or server fail (need size checking to backend).
+// TODO : need size checking for backend
 //! BUGS : Sometimes the image is not send for unknown reason.
 
 import io from "socket.io-client"
