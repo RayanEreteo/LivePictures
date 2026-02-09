@@ -13,54 +13,56 @@ const img = document.getElementById("image") as HTMLImageElement
 
 const BUFFER_LIMIT: number = 5e+6 // 5MB buffer limit
 
-let imgURL: string | ArrayBuffer | undefined | null = ""
-
 if (!channelID) {
     window.location.href = "/"
 }
 
 channelIdText.innerHTML = `Channel ID : ${channelID}`
 
+let binaryData: File | null = null
+
 fileInput.addEventListener('change', (event: Event) => {
     const target = event.target as HTMLInputElement
-    
     if (target.files && target.files[0]) {
         const file = target.files[0]
 
-        const reader = new FileReader()
-
-        reader.onload = (e) => {
-            imgURL = e.target?.result
-            
-            if (typeof imgURL === 'string') {
-                if (file.size > BUFFER_LIMIT) {
-                    target.value = ""
-                    return
-                }
-                img.src = imgURL
-            }
+        if (file.size > BUFFER_LIMIT) {
+            alert("File too large!")
+            target.value = ""
+            return
         }
 
+        binaryData = file
+
+        const reader = new FileReader()
+        reader.onload = (e) => {
+            img.src = e.target?.result as string
+        }
         reader.readAsDataURL(file)
     }
-});
+})
 
 imageForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    if (imgURL && channelID) {
-        socket.emit("send-image", { channelID, imgURL });
-        // Optional: Clear imgURL after sending to prevent double-submits
-    } else {
-        console.error("Image not loaded yet or Channel ID missing");
+    e.preventDefault()
+    if (binaryData && channelID) {
+        socket.emit("send-image", { channelID, image: binaryData })
     }
-});
+})
 
 window.addEventListener("pagehide", () => {
     localStorage.clear()
 })
 
-socket.on("update-image", (imageURL) => {
-    img.src = imageURL
+socket.on("update-image", (imageData: ArrayBuffer) => {
+    const blob = new Blob([imageData])
+    
+    const url = URL.createObjectURL(blob)
+    
+    img.src = url
+
+    img.onload = () => {
+        URL.revokeObjectURL(url)
+    }
 })
 
 socket.emit("enter-channel", channelID)
