@@ -54,15 +54,11 @@ window.addEventListener("pagehide", () => {
 })
 
 socket.on("update-image", (imageData: ArrayBuffer) => {
-    const blob = new Blob([imageData])
+    const blob = new Blob([imageData], { type: 'image/jpeg' })
     
     const url = URL.createObjectURL(blob)
     
     img.src = url
-
-    img.onload = () => {
-        URL.revokeObjectURL(url)
-    }
 })
 
 socket.emit("enter-channel", channelID)
