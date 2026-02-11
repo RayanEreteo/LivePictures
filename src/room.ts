@@ -1,6 +1,3 @@
-// TODO : need size checking for backend
-//! BUGS : Sometimes the image is not send for unknown reason.
-
 import io from "socket.io-client"
 
 const socket = io("http://192.168.1.221:5000")
