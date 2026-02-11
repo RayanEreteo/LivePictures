@@ -2,6 +2,8 @@
 
 Client code for "Live Pictures"
 
+[BACKEND CODE](https://github.com/RayanEreteo/LivePictures_Server)
+
 ## Overview
 
 Live Pictures is a real-time image sharing application. This repository contains the client-side implementation.
@@ -23,6 +25,8 @@ npm install
 ```
 
 ## Usage
+
+Set backend URL on **.env** then run :
 
 ```bash
 npm run dev
