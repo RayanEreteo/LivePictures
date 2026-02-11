@@ -4,11 +4,12 @@ Client code for "Live Pictures"
 
 ## Overview
 
-Live Pictures is a real-time image sharing and streaming application. This repository contains the client-side implementation.
+Live Pictures is a real-time image sharing application. This repository contains the client-side implementation.
 
 ## Features
 
-- Real-time image upload and streaming
+- Real-time image upload
+- No account required
 - Live preview of shared content
 - Simple User-friendly interface
 - Cross-platform compatibility
@@ -16,7 +17,7 @@ Live Pictures is a real-time image sharing and streaming application. This repos
 ## Installation
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/RayanEreteo/LivePictures
 cd LivePictures
 npm install
 ```
