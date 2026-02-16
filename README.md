@@ -26,7 +26,13 @@ npm install
 
 ## Usage
 
-Set backend URL on **.env** then run :
+Set backend URL on **main.ts** and **room.ts**
+
+```bash
+const socket = io("<BACKEND_URL>")
+```
+
+Then run the app :
 
 ```bash
 npm run dev
