@@ -41,5 +41,5 @@ socket.on("success", () => {
     }
     // Store channel ID in local storage and navigate to room
     localStorage.setItem("channelID", formInput.value)
-    window.location.href = "/room"
+    window.location.href = "/room.html"
 })
