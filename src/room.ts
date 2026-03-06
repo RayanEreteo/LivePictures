@@ -1,6 +1,6 @@
 // Initialize Socket.IO client connection to the server
 import io from "socket.io-client"
-const socket = io("http://192.168.1.221:5000")
+const socket = io("https://livepictures-server.onrender.com")
 
 // Get DOM elements
 const imageForm = document.getElementById("image-form") as HTMLFormElement
