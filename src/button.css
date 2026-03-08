@@ -1,17 +1,22 @@
-.btn-main{
-    background: linear-gradient(135deg, red,#8b96ff);
+.btn-main {
+  background: linear-gradient(135deg, red, #8b96ff);
 }
 
-.btn-main:hover{
-    background: linear-gradient(135deg, #ff4d4d, #7e88ff);
+.btn-main:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-.btn-secondary:hover{
-    background: linear-gradient(135deg, #5a5a5a, #6e6e7e);
+.btn-main:hover {
+  background: linear-gradient(135deg, #ff4d4d, #7e88ff);
 }
 
-.btn-secondary{
-    background: linear-gradient(135deg, rgb(36, 35, 35), #494950);
+.btn-secondary:hover {
+  background: linear-gradient(135deg, #5a5a5a, #6e6e7e);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, rgb(36, 35, 35), #494950);
 }
 
 button {

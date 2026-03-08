@@ -1,6 +1,6 @@
 // Initialize Socket.IO client connection to the server
 import io from "socket.io-client"
-const socket = io("https://livepictures-server.onrender.com")
+const socket = io(import.meta.env.VITE_URL_BACKEND)
 
 // Get DOM elements
 const form = document.getElementById("channel-form")
@@ -8,11 +8,14 @@ const formInput = document.getElementById("channel-id") as HTMLInputElement
 const serverMsg = document.getElementById("server-message")
 const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement
 
+socket.on("connect", () => {
+    submitBtn.disabled = false
+})
+
 // Handle form submission to check if channel exists
 form?.addEventListener("submit", (e) => {
     e.preventDefault()
     submitBtn.disabled = true
-
     // Verify server connection before emitting
     if (!socket.connected && serverMsg) {
         submitBtn.disabled = false
