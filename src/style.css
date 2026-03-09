@@ -49,7 +49,7 @@ body {
   margin-bottom: 0.5rem;
 }
 
-#description {
+#description-text {
   font-size: 0.95rem;
   color: var(--muted);
   margin-bottom: 2rem;
