@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./src/style.css">
     <link rel="stylesheet" href="./src/button.css">
     <title>Lives Pictures</title>
-    <meta name="description" content="Send images in real time, no account required !">
+    <meta name="description" content="Lives Pictures allows you to share photos instantly in real-time channels. No account, no tracking, and no hassle—just fast, temporary image sharing without server storing.">
   </head>
   <body>
     <div id="app">
@@ -18,9 +18,9 @@
       <p id="description-text">Send images in real time, no account required !</p>
       <form method="POST" id="channel-form">
         <input type="text" placeholder="Channel ID" name="channel-id" id="channel-id" required>
-        <button id="submit-btn" type="submit" class="btn-main" disabled>Enter Channel</button>
+        <button id="submit-btn" type="submit" class="btn-main" disabled>Connecting to server...</button>
       </form>
-      <p style="margin-top: 1.6rem; background: red; border-radius: 10px; padding: 0.3rem; display: none" id="server-message">Placeholder</p>
+      <p style="margin-top: 1.6rem; background: red; border-radius: 10px; padding: 0.3rem; display: none" id="server-message"></p>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
