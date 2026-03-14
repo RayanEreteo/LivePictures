@@ -10,6 +10,7 @@ const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement
 
 socket.on("connect", () => {
     submitBtn.disabled = false
+    submitBtn.innerHTML = "Enter Channel"
 })
 
 // Handle form submission to check if channel exists
